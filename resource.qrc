@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="assets">
+    <file>1x/1x/down-chevron.png</file>
+    <file>1x/1x/icons8-arrow-down-100.png</file>
     <file>1x/1x/Asset 2.png</file>
     <file>1x/1x/Asset 3.png</file>
     <file>1x/1x/Asset 4.png</file>
