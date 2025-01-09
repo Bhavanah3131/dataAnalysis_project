@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1044</width>
-    <height>696</height>
+    <width>863</width>
+    <height>618</height>
    </rect>
   </property>
   <property name="font">
@@ -211,7 +211,7 @@ QComboBox QAbstractItemView {
                   </property>
                   <item>
                    <property name="text">
-                    <string>Overall of nov_aug</string>
+                    <string>Overall </string>
                    </property>
                   </item>
                   <item>
@@ -450,7 +450,7 @@ QFrame{
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>+154985232</string>
+                       <string>0</string>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -473,7 +473,7 @@ QFrame{
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>-356565363</string>
+                       <string>.</string>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -502,7 +502,7 @@ QFrame{
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>=2548989</string>
+                       <string>0</string>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -525,7 +525,7 @@ QFrame{
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>2545</string>
+                       <string>0</string>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
@@ -716,6 +716,13 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 	 font-family: &quot;Railway&quot;;
 	font-size:30px
 }
+#label_2{
+	
+	border-image: url(:/assets/1x/1x/Asset 6.png);
+	 font-family: &quot;Railway&quot;;
+	font-size:20px
+}
+
 </string>
          </property>
          <property name="frameShape">
@@ -789,7 +796,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 }
 #label_5{
 	font-family:&quot;Railway&quot;;
-	font-size:12px;
+	font-size:18px;
 }
 </string>
                </property>
@@ -800,23 +807,13 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item alignment="Qt::AlignLeft">
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="label_5">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>November Shares Amount</string>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignRight">
-                 <widget class="QLabel" name="date_label1">
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <property name="text">
-                   <string>08/11/2024</string>
                   </property>
                  </widget>
                 </item>
@@ -897,7 +894,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 }
 #label{
 	font-family:&quot;Railway&quot;;
-	font-size:12px;
+	font-size:18px;
 }
 </string>
                </property>
@@ -908,23 +905,13 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item alignment="Qt::AlignLeft">
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="label">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>August Shares Amount</string>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignRight">
-                 <widget class="QLabel" name="date_label_2">
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <property name="text">
-                   <string>02/08/2024</string>
                   </property>
                  </widget>
                 </item>
@@ -991,7 +978,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>16777215</height>
+              <height>115</height>
              </size>
             </property>
             <property name="frameShape">
@@ -1016,57 +1003,6 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_9">
                 <item>
-                 <widget class="QLineEdit" name="inputtext">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>IBeamCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">    @font-face {
-        font-family: &quot;Railway&quot;;
-        src: url(:/fonts/1x/Railway.otf);
-    }
-#inputtext{
-font-family: &quot;Railway&quot;;
-font-size:15px;
-border-image: url(:/assets/1x/1x/Asset 8.png);}
-</string>
-                  </property>
-                  <property name="inputMask">
-                   <string/>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Name of isuuer</string>
-                  </property>
-                  <property name="cursorMoveStyle">
-                   <enum>Qt::LogicalMoveStyle</enum>
-                  </property>
-                  <property name="clearButtonEnabled">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <widget class="QFrame" name="frame_11">
                   <property name="frameShape">
                    <enum>QFrame::StyledPanel</enum>
@@ -1076,39 +1012,27 @@ border-image: url(:/assets/1x/1x/Asset 8.png);}
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5">
                    <item>
-                    <widget class="QPushButton" name="search_button">
+                    <widget class="QLabel" name="label_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
                      <property name="maximumSize">
                       <size>
-                       <width>150</width>
-                       <height>50</height>
+                       <width>16777215</width>
+                       <height>60</height>
                       </size>
                      </property>
-                     <property name="font">
-                      <font>
-                       <family>Railway</family>
-                       <pointsize>-1</pointsize>
-                       <weight>50</weight>
-                       <italic>false</italic>
-                       <bold>false</bold>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">
-    @font-face {
-        font-family: &quot;Railway&quot;;
-        src: url(:/fonts/1x/Railway.otf);
-    }
-#search_button{
-font-family: &quot;Railway&quot;;
-font-size:15px;
-border-image: url(:/assets/1x/1x/Asset 6.png);}</string>
-                     </property>
                      <property name="text">
-                      <string>Search</string>
+                      <string>Name of company</string>
                      </property>
-                     <property name="icon">
-                      <iconset resource="resource.qrc">
-                       <normaloff>:/assets/1x/1x/Asset 7.png</normaloff>:/assets/1x/1x/Asset 7.png</iconset>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -1134,19 +1058,10 @@ border-image: url(:/assets/1x/1x/Asset 6.png);}</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1044</width>
+     <width>863</width>
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionNew"/>
-    <addaction name="actionOpen"/>
-    <addaction name="actionExit"/>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew">

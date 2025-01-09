@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1044, 696)
+        MainWindow.resize(863, 618)
         font = QtGui.QFont()
         font.setFamily("Railway")
         MainWindow.setFont(font)
@@ -425,6 +425,13 @@ class Ui_MainWindow(object):
 "     font-family: \"Railway\";\n"
 "    font-size:30px\n"
 "}\n"
+"#label_2{\n"
+"    \n"
+"    border-image: url(:/assets/1x/1x/Asset 6.png);\n"
+"     font-family: \"Railway\";\n"
+"    font-size:20px\n"
+"}\n"
+"\n"
 "")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -462,7 +469,7 @@ class Ui_MainWindow(object):
 "}\n"
 "#label_5{\n"
 "    font-family:\"Railway\";\n"
-"    font-size:12px;\n"
+"    font-size:18px;\n"
 "}\n"
 "")
         self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -473,11 +480,7 @@ class Ui_MainWindow(object):
         self.label_5 = QtWidgets.QLabel(self.frame_10)
         self.label_5.setStyleSheet("")
         self.label_5.setObjectName("label_5")
-        self.horizontalLayout_4.addWidget(self.label_5, 0, QtCore.Qt.AlignLeft)
-        self.date_label1 = QtWidgets.QLabel(self.frame_10)
-        self.date_label1.setStyleSheet("")
-        self.date_label1.setObjectName("date_label1")
-        self.horizontalLayout_4.addWidget(self.date_label1, 0, QtCore.Qt.AlignRight)
+        self.horizontalLayout_4.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_6.addWidget(self.frame_10)
         self.frame_9 = QtWidgets.QFrame(self.frame_4)
         self.frame_9.setStyleSheet("    @font-face {\n"
@@ -524,7 +527,7 @@ class Ui_MainWindow(object):
 "}\n"
 "#label{\n"
 "    font-family:\"Railway\";\n"
-"    font-size:12px;\n"
+"    font-size:18px;\n"
 "}\n"
 "")
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -535,11 +538,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.frame_8)
         self.label.setStyleSheet("")
         self.label.setObjectName("label")
-        self.horizontalLayout_3.addWidget(self.label, 0, QtCore.Qt.AlignLeft)
-        self.date_label_2 = QtWidgets.QLabel(self.frame_8)
-        self.date_label_2.setStyleSheet("")
-        self.date_label_2.setObjectName("date_label_2")
-        self.horizontalLayout_3.addWidget(self.date_label_2, 0, QtCore.Qt.AlignRight)
+        self.horizontalLayout_3.addWidget(self.label, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_4.addWidget(self.frame_8)
         self.frame_7 = QtWidgets.QFrame(self.frame_5)
         self.frame_7.setStyleSheet("    @font-face {\n"
@@ -570,7 +569,7 @@ class Ui_MainWindow(object):
         self.frame_14.setObjectName("frame_14")
         self.verticalLayout_3.addWidget(self.frame_14)
         self.frame_6 = QtWidgets.QFrame(self.frame_3)
-        self.frame_6.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_6.setMaximumSize(QtCore.QSize(16777215, 115))
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")
@@ -585,56 +584,23 @@ class Ui_MainWindow(object):
         self.frame_13.setObjectName("frame_13")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_13)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
-        self.inputtext = QtWidgets.QLineEdit(self.frame_13)
-        self.inputtext.setMinimumSize(QtCore.QSize(0, 0))
-        self.inputtext.setMaximumSize(QtCore.QSize(16777215, 45))
-        self.inputtext.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
-        self.inputtext.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.inputtext.setStyleSheet("    @font-face {\n"
-"        font-family: \"Railway\";\n"
-"        src: url(:/fonts/1x/Railway.otf);\n"
-"    }\n"
-"#inputtext{\n"
-"font-family: \"Railway\";\n"
-"font-size:15px;\n"
-"border-image: url(:/assets/1x/1x/Asset 8.png);}\n"
-"")
-        self.inputtext.setInputMask("")
-        self.inputtext.setText("")
-        self.inputtext.setAlignment(QtCore.Qt.AlignCenter)
-        self.inputtext.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
-        self.inputtext.setClearButtonEnabled(True)
-        self.inputtext.setObjectName("inputtext")
-        self.verticalLayout_9.addWidget(self.inputtext)
         self.frame_11 = QtWidgets.QFrame(self.frame_13)
         self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_11.setObjectName("frame_11")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_11)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.search_button = QtWidgets.QPushButton(self.frame_11)
-        self.search_button.setMaximumSize(QtCore.QSize(150, 50))
-        font = QtGui.QFont()
-        font.setFamily("Railway")
-        font.setPointSize(-1)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.search_button.setFont(font)
-        self.search_button.setStyleSheet("\n"
-"    @font-face {\n"
-"        font-family: \"Railway\";\n"
-"        src: url(:/fonts/1x/Railway.otf);\n"
-"    }\n"
-"#search_button{\n"
-"font-family: \"Railway\";\n"
-"font-size:15px;\n"
-"border-image: url(:/assets/1x/1x/Asset 6.png);}")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/assets/1x/1x/Asset 7.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.search_button.setIcon(icon)
-        self.search_button.setObjectName("search_button")
-        self.horizontalLayout_5.addWidget(self.search_button)
+        self.label_2 = QtWidgets.QLabel(self.frame_11)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy)
+        self.label_2.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.label_2.setScaledContents(True)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_5.addWidget(self.label_2)
         self.verticalLayout_9.addWidget(self.frame_11)
         self.verticalLayout_8.addWidget(self.frame_13)
         self.verticalLayout_3.addWidget(self.frame_6)
@@ -642,12 +608,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1044, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 863, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionNew = QtWidgets.QAction(MainWindow)
+        self.actionNew.setObjectName("actionNew")
+        self.actionOpen = QtWidgets.QAction(MainWindow)
+        self.actionOpen.setObjectName("actionOpen")
+        self.actionExit = QtWidgets.QAction(MainWindow)
+        self.actionExit.setObjectName("actionExit")
 
         self.retranslateUi(MainWindow)
         self.comboBox.setCurrentIndex(0)
@@ -658,19 +630,19 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_3.setText(_translate("MainWindow", "Dashboard"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "Overall of nov_aug"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "Overall "))
         self.comboBox.setItemText(1, _translate("MainWindow", "Shares Gained"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Shares Reduced"))
         self.comboBox.setItemText(3, _translate("MainWindow", "Unchanged"))
         self.comboBox.setItemText(4, _translate("MainWindow", "New added"))
         self.high.setText(_translate("MainWindow", "Shares Amount Gained"))
-        self.high_lbl.setText(_translate("MainWindow", "+154985232"))
+        self.high_lbl.setText(_translate("MainWindow", "0"))
         self.low.setText(_translate("MainWindow", "Shares Amount Reduced"))
-        self.low_lbl.setText(_translate("MainWindow", "-356565363"))
+        self.low_lbl.setText(_translate("MainWindow", "."))
         self.equal.setText(_translate("MainWindow", "Unchanged Shares "))
-        self.equal_lbl.setText(_translate("MainWindow", "=2548989"))
+        self.equal_lbl.setText(_translate("MainWindow", "0"))
         self.new_.setText(_translate("MainWindow", "New Shares Added"))
-        self.new_lbl.setText(_translate("MainWindow", "2545"))
+        self.new_lbl.setText(_translate("MainWindow", "0"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWidgetPage2), _translate("MainWindow", "Chart"))
         self.tableWidget.setSortingEnabled(False)
         item = self.tableWidget.verticalHeaderItem(0)
@@ -682,11 +654,11 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWidgetPage1), _translate("MainWindow", "Table"))
         self.label_4.setText(_translate("MainWindow", "      Data Overview"))
         self.label_5.setText(_translate("MainWindow", "November Shares Amount"))
-        self.date_label1.setText(_translate("MainWindow", "08/11/2024"))
         self.sale_label.setText(_translate("MainWindow", "0.00"))
         self.label.setText(_translate("MainWindow", "August Shares Amount"))
-        self.date_label_2.setText(_translate("MainWindow", "02/08/2024"))
         self.buy_label.setText(_translate("MainWindow", "0.00"))
-        self.inputtext.setPlaceholderText(_translate("MainWindow", "Name of isuuer"))
-        self.search_button.setText(_translate("MainWindow", "Search"))
+        self.label_2.setText(_translate("MainWindow", "Name of company"))
+        self.actionNew.setText(_translate("MainWindow", "New"))
+        self.actionOpen.setText(_translate("MainWindow", "Open"))
+        self.actionExit.setText(_translate("MainWindow", "Exit"))
 from . import resource_rc

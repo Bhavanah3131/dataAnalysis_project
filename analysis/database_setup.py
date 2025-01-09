@@ -21,28 +21,35 @@ cur = conn.cursor()
 cur.execute('''
     CREATE TABLE IF NOT EXISTS transactions_nov_11 (
         id SERIAL,
-        nameOfIssuer VARCHAR(100) PRIMARY KEY NOT NULL,
+        nameOfIssuer VARCHAR(100) NOT NULL,
         titleOfClass VARCHAR(100),
         cusip VARCHAR(100) NOT NULL,
         value FLOAT,
         sshPrnamt FLOAT,
         sshPrnamtType VARCHAR(10),
-        investmentDiscretion VARCHAR(50),
-        otherManager VARCHAR(100))   
+        investmentDiscretion VARCHAR(50))   
 ''')
 
 cur.execute('''
     CREATE TABLE IF NOT EXISTS transactions_aug_02 (
         id SERIAL,
-        nameOfIssuer VARCHAR(100) PRIMARY KEY NOT NULL,
+        nameOfIssuer VARCHAR(100) NOT NULL,
         titleOfClass VARCHAR(100),
         cusip VARCHAR(100) NOT NULL,
         value FLOAT,
         sshPrnamt FLOAT,
         sshPrnamtType VARCHAR(10),
-        investmentDiscretion VARCHAR(50),
-        otherManager VARCHAR(100))
+        investmentDiscretion VARCHAR(50))
 ''')
+
+cur.execute('''
+        CREATE TABLE IF NOT EXISTS calculate_analysis(
+            nameOfIssuer VARCHAR(300) NOT NULL, 
+            sshPrnamt_nov FLOAT,
+            sshPrnamt_aug FLOAT,
+            differences FLOAT)    
+            ''')
+conn.commit()
 
 conn.commit()
 if __name__ == '__main__':

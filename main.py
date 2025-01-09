@@ -1,26 +1,29 @@
 from windows.Dashboard import Ui_MainWindow
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import *   
 from analysis.database_analyze import *
 from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
     QRect, QSize, QUrl, Qt)
 from PyQt5.QtChart import *
 from PyQt5.QtGui import QPainter,  QBrush, QColor,QPen
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self,filename1,filename2):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.setWindowTitle("Data Analysis of Alphabet ")
-        self.chart_view = None
         self.ui.setupUi(self)
+        self.chart_view = None
         self.nov,self.aug,self.high,self.low,self.equal,self.new = Overall()
         self.overtbl = Overall_tbl()
         self.high_data = high_data()
         self.low_data = low_data()
         self.equal_data = equal_data()
         self.new_data = new_data()  
-        print(len(self.high_data))
-        self.display_overalldata(aug=self.aug,nov=self.nov)
-        self.ui.search_button.clicked.connect(lambda : self.search_())
+        print(len(self.overtbl))
+        self.ui.label_5.setText(filename1)
+        self.ui.label.setText(filename2)
+        self.company_name = filename1.split('_')[0]
+        self.ui.label_2.setText(f"{self.company_name}")
+        self.display_overalldata(self.aug,self.nov)
         self.ui.comboBox.setCurrentIndex(0)
         self.on_combobox_changed()
 
@@ -97,7 +100,7 @@ class MainWindow(QMainWindow):
         self.chart_view.setMinimumSize(400, 400)
     
     def barChart(self,data):
-        if len(data) == 1:
+        if len(data[0]) == 2:
             self.bar_set = QBarSet("Values")
             self.bar_set.append(self.new)  # Example data
 
@@ -137,7 +140,7 @@ class MainWindow(QMainWindow):
         self.aug_set = QBarSet("August")
 
         self.series = QBarSeries()
-        for name, nov_value, aug_value in data:
+        for name, nov_value, aug_value, differences in data:
             # Add the values to the bar sets
             self.nov_set << nov_value
             self.aug_set << aug_value
@@ -151,7 +154,7 @@ class MainWindow(QMainWindow):
         self.chart.setAnimationOptions(QChart.SeriesAnimations)
 
         # Create and configure the X-axis (categories)
-        self.categories = [name for name, _, _ in data]  # Extract the names for the X-axis
+        self.categories = [name for name, _, _, _ in data]  # Extract the names for the X-axis
         self.axisX = QBarCategoryAxis()
         self.axisX.append(self.categories)
         self.chart.addAxis(self.axisX, Qt.AlignBottom)
@@ -172,7 +175,7 @@ class MainWindow(QMainWindow):
             self.chart_view.hide()
 
     def disp_tbl(self,data):
-        column_names = ["Name of Issuer", "November Shares", "August Shares"]
+        column_names = ["Name of Issuer", "Recent Shares", "Previous Shares","Differences"]
         # data = [('1', 'John Doe', 30), ('2', 'Jane Doe', 28), ('3', 'Mike Doe', 35)]
 
        
@@ -195,6 +198,7 @@ class MainWindow(QMainWindow):
             self.hide()
             self.hide_tbl()     # "Overall of nov_aug"
             self.pieChart_()
+            self.display_overalldata(self.aug,self.nov)
             self.disp_tbl(self.overtbl)
         elif index == 1:  # Shares Gained
             self.hide()
@@ -220,19 +224,14 @@ class MainWindow(QMainWindow):
         elif index == 4:  # New added
             self.hide()  # Shares Reduced
             self.hide_tbl()
-            print(self.new)
-            if len(self.new_data) != 1:
-                self.data4 = sumof(self.new_data)
-                self.display_overalldata(self.data4[1],self.data4[0])
-            else:
-                self.display_overalldata(0,self.new[0])
-                self.new_data = [(self.new_data[0][0],self.new[0])]
+            self.data4 = sumof(self.new_data)
+            self.display_overalldata(0,self.data4)
             self.barChart(self.new_data)
             self.disp_tbl(self.new_data)
         
 
 if __name__ == '__main__':  
     app = QApplication([])
-    window = MainWindow()
+    window = MainWindow('hh','uu')
     window.show()
     app.exec_()

@@ -3,30 +3,8 @@ from psycopg2 import sql
 from . database_setup import conn,cur
 from . graph import *
 
-cur.execute('''
-        CREATE TABLE IF NOT EXISTS calculate_analysis(
-            nameOfIssuer VARCHAR(300) PRIMARY KEY, FOREIGN KEY (nameOfIssuer) REFERENCES transactions_nov_11(nameOfIssuer), 
-            sshPrnamt_nov FLOAT,
-            sshPrnamt_aug FLOAT,
-            differences FLOAT)    
-            ''')
-conn.commit()
-#merging the two tables and also taking out the differences of sshPrnamt in one table
-def merging_table():
-    insert_into_calculate_analysis="""INSERT INTO calculate_analysis(nameOfIssuer, 
-    sshPrnamt_nov, sshPrnamt_aug, 
-    differences)
-    SELECT 
-    COALESCE(n.nameOfIssuer, a.nameOfIssuer) AS nameOfIssuer,
-    n.sshPrnamt AS sshPrnamt_nov, 
-    a.sshPrnamt AS sshPrnamt_aug,
-    (n.sshPrnamt - a.sshPrnamt) AS differences
-    FROM transactions_nov_11 n
-    JOIN transactions_aug_02 a
-    ON n.nameOfIssuer = a.nameOfIssuer;
-    """
-    cur.execute(insert_into_calculate_analysis)
-    print("join operation successfully inserted") 
+
+
 def Overall_tbl():
     query= "SELECT * FROM calculate_analysis;"
     cur.execute(query)
@@ -34,20 +12,20 @@ def Overall_tbl():
     return data
 def high_data():
     query="""
-    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug
+    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug, differences
     FROM calculate_analysis 
     WHERE sshPrnamt_nov > sshPrnamt_aug;
     """
     cur.execute(query)
     data = cur.fetchall()
-    query= """SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug
+    query= """SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug, differences
     FROM calculate_analysis 
     WHERE SUM(sshPrnamt_nov > sshPrnamt_aug);
     """
     return data
 def low_data():
     query="""
-    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug
+    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug, differences
     FROM calculate_analysis 
     WHERE sshPrnamt_nov < sshPrnamt_aug ORDER BY sshPrnamt_nov ASC;
     """
@@ -57,7 +35,7 @@ def low_data():
 
 def equal_data():
     query="""
-    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug
+    SELECT nameOfIssuer, sshPrnamt_nov, sshPrnamt_aug, differences
     FROM calculate_analysis 
     WHERE sshPrnamt_nov = sshPrnamt_aug;
     """
@@ -67,9 +45,20 @@ def equal_data():
 
 def new_data():
     query="""
-    SELECT nameOfIssuer    FROM transactions_nov_11   
+    SELECT 
+    t_nov.nameOfIssuer,
+    t_nov.sshPrnamt
+    FROM 
+    transactions_nov_11 t_nov
+    LEFT JOIN (
+    SELECT nameOfIssuer
+    FROM transactions_nov_11   
     EXCEPT   
-    SELECT nameOfIssuer    FROM transactions_aug_02;
+    SELECT nameOfIssuer
+    FROM transactions_aug_02
+    ) except_result
+    ON t_nov.nameOfIssuer = except_result.nameOfIssuer
+    WHERE except_result.nameOfIssuer IS NOT NULL;
     """
     cur.execute(query)
     data = cur.fetchall()
@@ -131,9 +120,13 @@ def percentage(countOfcatagery):
  
 
 def sumof(data):
-    total_november = sum(item[1] for item in data)
-    total_august = sum(item[2] for item in data)
-    return total_november, total_august
+    if len(data[0]) != 2 :
+        total_november = sum(item[1] for item in data)
+        total_august = sum(item[2] for item in data)
+        return total_november, total_august
+    else:
+        total_november = sum(item[1] for item in data)
+        return total_november
 
 #fetching individual value by their nameOfIssuer
 def data_by_name(name_Of_Issuer):
@@ -159,6 +152,7 @@ def data_by_name(name_Of_Issuer):
 
 
 if __name__ == "__main__":
+    merging_table()
     # x,y = Overall()
      #name = 'Overall'
      #print(x,y)
